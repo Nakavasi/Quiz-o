@@ -1,0 +1,33 @@
+body{
+    background-color: #3c3b3b;
+    color: #ffffff71;
+    font-family: "Arial";
+    font-size: 12px;
+    text-align: center;
+    margin-top: 200px;
+    text-transform: uppercase;
+}
+.Nom{
+    color: #ffffff71;
+    font-family: "Arial";
+    font-size: 12px;
+    margin-left: -30;
+    text-align: center;
+    text-transform: uppercase;
+}
+.prenom{
+    color: #ffffff71;
+    font-family: "Arial";
+    font-size: 12px;
+    margin-left: -55PX;
+    text-align: center;
+    text-transform: uppercase;
+}
+.Mdp{
+    color: #ffffff71;
+    font-family: "Arial";
+    font-size: 12px;
+    margin-left: -90PX;
+    text-align: center;
+    text-transform: uppercase;
+}
