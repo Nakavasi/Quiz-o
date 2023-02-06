@@ -1,22 +1,17 @@
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inscription</title>
+    <title>Connexion</title>
     <link rel="stylesheet" href="inscription.css">
 </head>
 <body>
-    <h1>Connexion</h1>
-    <div class="Nom">
+    <h1>Bien venue sur Quizz O!</h1>
+    <p>Connexion</p>
+    <div class="pseudo">
         <form action="inscription.php" method="post">
-            <label for="nom">Nom</label>
-            <input type="text" name="nom" id="nom" required><br>
-        </form>
-    </div>
-    <div class="Prenom">
-        <form action="inscription.php" method="post">
-            <label for="prenom">Prénom</label>
+            <label for="prenom">Pseudo</label>
             <input type="text" name="prenom" id="prenom" required><br>
     </form>
     </div>
@@ -26,7 +21,8 @@
             <input type="password" name="password" id="password" required><br>
         </form>
     </div>
-            <input type="submit" value="Se connecter">
+    <div class="button">
+            <input type="submit" value="Se connecter"><br></br>
             <input type="submit" value="S'inscrire">
         </form>
     </div>

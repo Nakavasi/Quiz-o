@@ -1,33 +1,37 @@
 body{
-    background-color: #3c3b3b;
-    color: #ffffff71;
-    font-family: "Arial";
-    font-size: 12px;
+    background: linear-gradient(rgba(170, 34, 170, 0.877), pink);
+    color: #000000b8;
+    font-family: "script";
+    font-size: 20px;
     text-align: center;
-    margin-top: 200px;
+    margin-top: 240px;
     text-transform: uppercase;
 }
-.Nom{
-    color: #ffffff71;
-    font-family: "Arial";
+.pseudo{
+    color: #000000b8;
+    font-family: "script";
     font-size: 12px;
-    margin-left: -30;
-    text-align: center;
-    text-transform: uppercase;
-}
-.prenom{
-    color: #ffffff71;
-    font-family: "Arial";
-    font-size: 12px;
-    margin-left: -55PX;
+    margin-left: -52PX;
     text-align: center;
     text-transform: uppercase;
 }
 .Mdp{
-    color: #ffffff71;
-    font-family: "Arial";
+    color: #000000b8;
+    font-family: "script";
     font-size: 12px;
     margin-left: -90PX;
     text-align: center;
     text-transform: uppercase;
+}
+
+.button input{
+    border: none;
+    padding: 2.5px;
+    color: rgb(0, 0, 0);
+    background: linear-gradient(to top,rgba(218, 73, 218, 0.877), pink);
+    font-family: "script";
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
 }
