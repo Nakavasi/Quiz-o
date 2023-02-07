@@ -9,14 +9,13 @@
 <body>
     <h1>Bienvenue sur Quizz O!</h1>
     <p>Connexion</p>
+    <form action="intermédiaire.php" method="post">
     <div class="pseudo">
-        <form action="inscription.php" method="post">
             <label for="prenom">Pseudo</label>
             <input type="text" name="prenom" id="prenom" required><br>
     </form>
     </div>
     <div class="Mdp">
-        <form action="inscription.php" method="post">
             <label for="password">Mot de passe</label>
             <input type="password" name="password" id="password" required><br>
         </form>
@@ -26,6 +25,7 @@
             <input type="submit" value="Se connecter"><br>
         </form>
     </div>
+    </form>
     <p>Pas encore inscrie ?</p>
     <div class="button">
         <form action="inscription.html" method=""post>
