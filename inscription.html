@@ -1,4 +1,4 @@
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,22 +9,22 @@
 <body>
     <h1>Veuillez vous inscrire</h1>
     <p>inscription</p>
+    <form action="intermédiaire1.php" method="post">
+    <div class="mail">
+            <label for="mail">Mail</label>
+            <input type="text" name="nom" id="nom" required><br>
+    </div>
     <div class="pseudo">
-        <form action="inscription.php" method="post">
             <label for="prenom">Pseudo</label>
             <input type="text" name="prenom" id="prenom" required><br>
-    </form>
     </div>
     <div class="Mdp">
-        <form action="inscription.php" method="post">
             <label for="password">Mot de passe</label>
             <input type="password" name="password" id="password" required><br>
-        </form>
     </div>
     <div class="button">
-        <form action="accueil.html" method=""post>
-            <input type="submit" value="S'inscrire">
-        </form>
+        <input type="submit" value="S'inscrire"><br>
     </div>
+    </form>
 </body>
 </html>
