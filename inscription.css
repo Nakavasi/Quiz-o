@@ -18,7 +18,7 @@ body{
     color: #000000b8;
     font-family: "script";
     font-size: 12px;
-    margin-left: -52PX;
+    margin-left: -60PX;
     text-align: center;
     text-transform: uppercase;
 }
@@ -26,7 +26,7 @@ body{
     color: #000000b8;
     font-family: "script";
     font-size: 12px;
-    margin-left: -90PX;
+    margin-left: -98PX;
     text-align: center;
     text-transform: uppercase;
 }
@@ -40,4 +40,5 @@ body{
     font-size: 16px;
     cursor: pointer;
     border-radius: 5px;
+    margin-left: -15px;
 }
