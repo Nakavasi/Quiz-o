@@ -1,2 +1,0 @@
-il manque mtn de vérifier que quand je marque un pseudo pour me connecter et un mdp qu'il existe et pareil pour s'inscrire.
-sinon des qu'on appuie sur les bourons pour se connecter ou s'inscrire ca nous envois dans la bonne directions (exemple: de ce connecter à accueil)
