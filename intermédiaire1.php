@@ -7,9 +7,9 @@
     <title>Document</title>
 </head>
 <body>
-    bonjour
-    <?php 
-          include("intermédiaire.php"); 
-    ?>
 </body>
+bonjour
+<?php
+    include("connexion.html");
+?>
 </html>
