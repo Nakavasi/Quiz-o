@@ -10,6 +10,6 @@
 </body>
 bonjour
 <?php
-    include("connexion.html");
+    include("intermédiaire.php");
 ?>
 </html>

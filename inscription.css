@@ -7,11 +7,18 @@ body{
     margin-top: 240px;
     text-transform: uppercase;
 }
+.mail{
+    color: #000000b8;
+    font-family: "script";
+    font-size: 12px;
+    margin-left: -45PX;
+    text-align: center;
+    text-transform: uppercase;}
 .pseudo{
     color: #000000b8;
     font-family: "script";
     font-size: 12px;
-    margin-left: -52PX;
+    margin-left: -16PX;
     text-align: center;
     text-transform: uppercase;
 }
@@ -19,7 +26,7 @@ body{
     color: #000000b8;
     font-family: "script";
     font-size: 12px;
-    margin-left: -90PX;
+    margin-left: -53PX;
     text-align: center;
     text-transform: uppercase;
 }
