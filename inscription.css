@@ -41,4 +41,18 @@ body{
     cursor: pointer;
     border-radius: 5px;
     margin-left: -15px;
+    margin-top: -30px;
+}
+.button1 input{
+    border: none;
+    padding: 2.5px;
+    color: rgb(0, 0, 0);
+    background: linear-gradient(to top,rgba(218, 73, 218, 0.877), pink);
+    font-family: "script";
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-left: -15px;
+    margin-top: 0px;
 }
