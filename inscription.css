@@ -18,7 +18,7 @@ body{
     color: #000000b8;
     font-family: "script";
     font-size: 12px;
-    margin-left: -60PX;
+    margin-left: -61PX;
     text-align: center;
     text-transform: uppercase;
 }
@@ -40,7 +40,7 @@ body{
     font-size: 16px;
     cursor: pointer;
     border-radius: 5px;
-    margin-left: -15px;
+    margin-left: -13px;
     margin-top: -30px;
 }
 .button1 input{
@@ -53,6 +53,16 @@ body{
     font-size: 16px;
     cursor: pointer;
     border-radius: 5px;
-    margin-left: -15px;
+    margin-left: -13px;
     margin-top: 0px;
+}
+select{
+    margin-left: -13px;
+    background:rgb(255, 192, 237);
+    font-family: "script";
+}
+select option {
+    background-color:rgb(255, 192, 237);
+    color: black;
+    font-family: "script";
 }
