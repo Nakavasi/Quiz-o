@@ -17,14 +17,14 @@
             if ($mail != $Utilisateur[$i]["email"]){
                 if ($pseudo != $Utilisateur[$i]["nom"]){
                     if ($mdp != $Utilisateur[$i]["mdp"]){
-                        header('Location: accueil.html');
+                        // header('Location: accueil.html');
                         $nonValide= FALSE;
                     }
                 }
             }
         }
         if ($nonValide){
-            header('Location: inscription.html');
+            // header('Location: inscription.html');
         }
     ?>
 </body>
