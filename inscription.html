@@ -21,15 +21,24 @@
     <div class="Mdp">
             <label for="password">Mot de passe</label>
             <input type="password" name="password" id="password" required><br>
-    </div><br><br>
+    </div>
+    </form><br>
+    <div class="select">
+        <select name="Type" id="Type-select" required>
+            <option value="" style="color:linear-gradient(to top,rgba(218, 73, 218, 0.877), pink);">--Choisie un rôle--</option>
+            <option value="User"style="color:linear-gradient(to top,rgba(218, 73, 218, 0.877), pink);">User</option>
+            <option value="Quizzer">Quizzer</option>
+        </select>
+    </div>
+    <br><br>
     <div class="button">
         <input type="submit" value="S'inscrire">
     </div>
     </form>
-    <form action="connexion.html" method="post">
-        <div class="button1">
+    <form action="connexion.html" method="post"></form>
+    <div class="button1">
             <input type="submit" value="Se connecter">
-        </div>
+    </div>
     </form>
 </body>
 </html>
