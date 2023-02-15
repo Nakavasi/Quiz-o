@@ -3,32 +3,41 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="creation_quizz.css">
     <title>Creation</title>
 </head>
 <body>
-    <h1>Creation</h1>
-    <p>Creation de quizz</p>
+    <h1>Creation du Quizz</h1>
     <form action="creation de quizz.php">
-        <label for="question">1er question </label>
+        <label for="question">Question :</label>
         <input type="text" id="question" name="question"><br><br>
         <form>
-            <p>Veuillez choisir la bonne reponse :</p>
-            <div>
+            <p>Veuillez inscrire et cocher la bonne réponse :</p>
+        </form>
+        <form>
+            <div classe="reponse1">
               <input type="text" id="Reponse1"
-               name="reponse" value="reponse">
+               name="reponse">
               <label for="reponse"></label>
-          
+            </div>
+        </form>
+            <div classe="reponse2">
               <input type="text" id="Reponse2"
-               name="question" value="reponse">
+               name="question">
               <label for="contactChoice2"></label>
-          
+            </div>
+            <div classe="reponse3">
               <input type="text" id="Reponse3"
-               name="question" value="reponse">
+               name="question">
               <label for="contactChoice3"></label>
             </div>
-            <div>
-              <button type="submit">Envoyer</button>
+            <div classe="reponse4">
+              <input type="text" id="Reponse4"
+               name="question">
+              <label for="contactChoice4"></label>
+            </div>
+            <div classe="Suivant">
+              <button type="submit">Question suivante</button>
             </div>
           </form>
-          
+</body>

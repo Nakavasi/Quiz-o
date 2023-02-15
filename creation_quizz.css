@@ -1,0 +1,20 @@
+body{
+    background: linear-gradient(rgba(170, 34, 170, 0.877), pink);
+    font-family: script;
+    font-size: 20px;
+    color: #333;
+    text-align: center;
+    margin-top: 150;
+}
+.reponse1{
+margin-left: 10px;
+}
+.reponse2{
+    margin-left: 10px;
+}
+.reponse3{
+    margin-left: 10px;
+}
+.reponse4{
+    margin-left: 10px;
+}
