@@ -20,7 +20,7 @@
         while ($user=mysqli_fetch_assoc($result)){
             if ($pseudo == $user["pseudo"]or $pseudo == $user["email"]){
                 if ($mdp == $user["password"]){
-                    header('Location: accueil.html');
+                    header("Location: accueil".$user["role"].".html");
                     exit;
                 }
             }

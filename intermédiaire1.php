@@ -10,20 +10,15 @@
     <?php
         $connexion=mysqli_connect("localhost","root","", "quiz");
         $result = mysqli_query($connexion,"SELECT * FROM user");
-        $pseudo =$_POST["prenom"];
+        $pseudo= $_POST["prenom"];
         $mail= $_POST["mail"];
         $mdp= $_POST["password"];
-        $type= intval($_POST['Type']);
-        $idlastuser=1;
+        $type= intval($_POST["Type"]);
         if (!$result) {
             echo 'Impossible d\'exécuter la requête ';
             exit;
         }
         while ($user=mysqli_fetch_assoc($result)){
-            if ($mail == $user["email"]){
-                header('Location: inscription.html');
-                exit;
-            }
             if ($pseudo == $user["pseudo"]){
                 header('Location: inscription.html');
                 exit;
@@ -32,12 +27,13 @@
                 header('Location: inscription.html');
                 exit;
             }
-            $idlastuser=$user["Id"];
+            if ($mail == $user["email"]){
+                header('Location: inscription.html');
+                exit;
+            }
         }
-        
-        $idlastuser++;
-        mysqli_query($connexion,"INSERT INTO `user`(`pseudo`, `email`, `password`, `role`) VALUES ('$pseudo', '$mail', '$mdp', '$type')");
-        header('Location: accueil.html');
+        mysqli_query($connexion,"INSERT INTO `user`( `pseudo`, `email`, `password`, `role`) VALUES ('$pseudo','$mail','$mdp','$type')");
+        header("Location: accueil".$user["role"].".html");
     ?>
 </body>
 </html>
