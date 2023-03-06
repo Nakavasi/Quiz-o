@@ -99,3 +99,22 @@ body{
     background: magenta;
     color: lightpink;
 }
+.bouton5 input{
+    border-radius: 5px;
+    width: 100px;
+    height: 20px;
+    font-family: script;
+    font-size: 15px;
+    background: linear-gradient(to top,rgba(218, 73, 218, 0.877), pink);
+
+}
+.bouton5{
+    text-align: right;
+    margin-left: 40px;
+    margin-top: -200px;
+    transition-duration: 0.4s;
+}
+.bouton5 input{
+    background: magenta;
+    color: lightpink;
+}
