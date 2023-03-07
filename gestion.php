@@ -9,7 +9,6 @@
 
 </head>
 <body>
-<div class="pseudo">
     <form method="post">
         <input type="text" name="pseudo" submit/>
         <input type="submit" name="envoie" value="Envoyer">
@@ -25,14 +24,11 @@
         $pseudo = $_POST["pseudo"];
         Supprimer($result, $connexion,$pseudo);
     }
-
-    
-    
+    echo '<select name="pseudo" id="Pseudo-select" required>';
+    echo '<option value="">--Choisie un pseudo--</option>';
     while ($user = mysqli_fetch_assoc($result)) {
-        echo  "<p>" ;
-        echo  $user['pseudo'];
-        echo "</p>";
+        echo '<option value='.$user['pseudo'].'>'.$user['pseudo'].'</option>';
     }
-
-
+    echo '</select>';
     ?>
+</body>
