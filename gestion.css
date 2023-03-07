@@ -1,8 +1,19 @@
 body{
-    background: linear-gradient(rgba(170, 34, 170, 0.877), pink);
+    background: linear-gradient(rgba(170, 34, 170, 0.877), pink);;
+    color: #000000;
     font-family: script;
-    font-size: 20px;
-    color: #333;
+    font-size: 12px;
+    margin: 0;
+    padding: 0;
     text-align: center;
-    margin-top: 150;
+    text-transform: uppercase;
+    font-family: script;
+    margin-top: 190px;
+}
+.pseudo{
+    margin-top: 50px;
+    margin-left: 20%;
+    border: 1px solid #262827;
+    border-radius: 5px;
+    width: 200px;
 }
