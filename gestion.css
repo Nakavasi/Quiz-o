@@ -1,0 +1,8 @@
+body{
+    background: linear-gradient(rgba(170, 34, 170, 0.877), pink);
+    font-family: script;
+    font-size: 20px;
+    color: #333;
+    text-align: center;
+    margin-top: 150;
+}
