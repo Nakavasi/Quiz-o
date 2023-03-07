@@ -10,9 +10,6 @@
 </head>
 <body>
     <form method="post">
-        <input type="text" name="pseudo" submit/>
-        <input type="submit" name="envoie" value="Envoyer">
-    </form>
     <?php
     $connexion=mysqli_connect("localhost","root","", "quiz");
     $result = mysqli_query($connexion,"SELECT * FROM user");
@@ -31,4 +28,6 @@
     }
     echo '</select>';
     ?>
+    <input type="submit" name="envoie" value="Envoyer">
+    </form>
 </body>
