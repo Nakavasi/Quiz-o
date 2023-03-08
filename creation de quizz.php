@@ -40,78 +40,80 @@
         </div>
     </form>
         <?php
-            //creation de la connexion entre le code et la base de donnée
             $connexion=mysqli_connect("localhost","root","", "quiz");
             $quizzs = mysqli_query($connexion,"SELECT * FROM quizz1");
-            $nom= $_POST["nom"];
-            $difficulte= intval($_POST["difficulte"]);
-            $date= date('20y-m-d');
-            if (mysqli_query($connexion,"INSERT INTO `quizz1` (`Titre`, `difficulté`, `date_de_creation`) VALUES ('$nom','$difficulte','$date')")){
-                echo "Quiz cré!";
+            if (array_key_exists("nom",$_POST)){
+                $nom= $_POST["nom"];
+                $difficulte= intval($_POST["difficulte"]);
+                $date= date('20y-m-d');
+                if (mysqli_query($connexion,"INSERT INTO `quizz1` (`Titre`, `difficulté`, `date_de_creation`) VALUES ('$nom','$difficulte','$date')")){
+                    echo "Quiz cré!";
+                }
+                else{
+                    echo "Mission failed! We wil get them next time.";
+                }
             }
-            else{
-                echo "Mission failed! We wil get them next time.";
+            $idLastQuestion =null;
+            while ($quizz = mysqli_fetch_assoc($quizzs)) {
+                $idLastQuizz = $quizz["Id"];
             }
-            // $idlasquestion =null;
-            // while ($quizz = mysqli_fetch_assoc($quizzs)) {
-            //     $idLastQuizz = $quizz["Id"];
-            // }
-            // // $questions = mysqli_query($connexion,"SELECT * FROM question WHERE idQuiz= `$idLastQuizz`");
+            $questions = mysqli_query($connexion,"SELECT * FROM question WHERE idQuiz='$idLastQuizz'");
             $nombrequestion=0;
-            // // while ($question = mysqli_fetch_assoc($questions)) {
-            // //     $nombrequestion++;
-            // // }
+            while ($question = mysqli_fetch_assoc($questions)) {
+                $nombrequestion++;
+                $idLastQuestion=$question["id"];
+            }
             echo "<div id='variable a passer'>".$nombrequestion."</div>";
             
-            // if (array_key_exists("Validation",$_POST)){
-            //     if (array_key_exists("Reponse1check",$_POST)){
-            //         $check1= $_POST["Reponse1check"];
-            //     }
-            //     else if (array_key_exists("Reponse2check",$_POST)){
-            //         $check2= $_POST["Reponse2check"];
-            //     } 
-            //     else if (array_key_exists("Reponse3check",$_POST)){
-            //         $check3= $_POST["Reponse3check"];
-            //     } 
-            //     else if (array_key_exists("Reponse4check",$_POST)){
-            //         $check4= $_POST["Reponse4check"];
-            //     }
-            //     $question= $_POST["question"];
-            //     $reponse1=$_POST["Reponse1"];
-            //     $reponse2=$_POST["Reponse2"];
-            //     $reponse3=$_POST["Reponse3"];
-            //     $reponse4=$_POST["Reponse4"];
-            //     echo "La question est : ".$question."<br>";
-            // }
-            // if (isset($check1)){
-            //     echo "Réponse1 :".$reponse1." Bonne réponse <br>";
-            //     echo "Réponse2 :".$reponse2." Mauvaise réponse<br>";
-            //     echo "Réponse3 :".$reponse3." Mauvaise réponse<br>";
-            //     echo "Réponse4 :".$reponse4." Mauvaise réponse<br>";
-            // }
-            // else if(isset($check2)){
-            //     echo "Réponse1 :".$reponse1." Mauvaise réponse<br>";
-            //     echo "Réponse2 :".$reponse2." Bonne réponse<br>";
-            //     echo "Réponse3 :".$reponse3." Mauvaise réponse<br>";
-            //     echo "Réponse4 :".$reponse4." Mauvaise réponse<br>";
-            // }
-            // else if(isset($check3)){
-            //     echo "Réponse1 :".$reponse1." Mauvaise réponse<br>";
-            //     echo "Réponse2 :".$reponse2." Mauvaise réponse<br>";
-            //     echo "Réponse3 :".$reponse3." Bonne réponse<br>";
-            //     echo "Réponse4 :".$reponse4." Mauvaise réponse<br>";
-            // }
-            // else if(isset($check4)){
-            //     echo "Réponse1 :".$reponse1." Mauvaise réponse<br>";
-            //     echo "Réponse2 :".$reponse2." Mauvaise réponse<br>";
-            //     echo "Réponse3 :".$reponse3." Mauvaise réponse<br>";
-            //     echo "Réponse4 :".$reponse4." Bonne réponse<br>";
-            // }
+            if (array_key_exists("Validation",$_POST)){
+                if (array_key_exists("Reponse1check",$_POST)){
+                    $check1= $_POST["Reponse1check"];
+                }
+                else if (array_key_exists("Reponse2check",$_POST)){
+                    $check2= $_POST["Reponse2check"];
+                } 
+                else if (array_key_exists("Reponse3check",$_POST)){
+                    $check3= $_POST["Reponse3check"];
+                } 
+                else if (array_key_exists("Reponse4check",$_POST)){
+                    $check4= $_POST["Reponse4check"];
+                }
+                $question= $_POST["question"];
+                $reponse1=$_POST["Reponse1"];
+                $reponse2=$_POST["Reponse2"];
+                $reponse3=$_POST["Reponse3"];
+                $reponse4=$_POST["Reponse4"];
+                $choix = mysqli_query($connexion,"SELECT * FROM choix");
+                if (isset($check1)){
+                    mysqli_query($connexion,"INSERT INTO `choix`(`Reponse`, `Bonne_Réponse`, `idQuestion`) VALUES ('$reponse1',1,'$idLastQuestion'");
+                    mysqli_query($connexion,"INSERT INTO `choix`(`Reponse`, `Bonne_Réponse`, `idQuestion`) VALUES ('$reponse2',0,'$idLastQuestion')");
+                    mysqli_query($connexion,"INSERT INTO `choix`(`Reponse`, `Bonne_Réponse`, `idQuestion`) VALUES ('$reponse3',0,'$idLastQuestion')");
+                    mysqli_query($connexion,"INSERT INTO `choix`(`Reponse`, `Bonne_Réponse`, `idQuestion`) VALUES ('$reponse4',0,'$idLastQuestion')");
+                }
+                else if(isset($check2)){
+                    mysqli_query($connexion,"INSERT INTO `choix`(`Reponse`, `Bonne_Réponse`, `idQuestion`) VALUES ('$reponse1',0,'$idLastQuestion'");
+                    mysqli_query($connexion,"INSERT INTO `choix`(`Reponse`, `Bonne_Réponse`, `idQuestion`) VALUES ('$reponse2',1,'$idLastQuestion')");
+                    mysqli_query($connexion,"INSERT INTO `choix`(`Reponse`, `Bonne_Réponse`, `idQuestion`) VALUES ('$reponse3',0,'$idLastQuestion')");
+                    mysqli_query($connexion,"INSERT INTO `choix`(`Reponse`, `Bonne_Réponse`, `idQuestion`) VALUES ('$reponse4',0,'$idLastQuestion')");
+                }
+                else if(isset($check3)){
+                    mysqli_query($connexion,"INSERT INTO `choix`(`Reponse`, `Bonne_Réponse`, `idQuestion`) VALUES ('$reponse1',0,'$idLastQuestion'");
+                    mysqli_query($connexion,"INSERT INTO `choix`(`Reponse`, `Bonne_Réponse`, `idQuestion`) VALUES ('$reponse2',0,'$idLastQuestion')");
+                    mysqli_query($connexion,"INSERT INTO `choix`(`Reponse`, `Bonne_Réponse`, `idQuestion`) VALUES ('$reponse3',1,'$idLastQuestion')");
+                    mysqli_query($connexion,"INSERT INTO `choix`(`Reponse`, `Bonne_Réponse`, `idQuestion`) VALUES ('$reponse4',0,'$idLastQuestion')");
+                }
+                else if(isset($check4)){
+                    mysqli_query($connexion,"INSERT INTO `choix`(`Reponse`, `Bonne_Réponse`, `idQuestion`) VALUES ('$reponse1',0,'$idLastQuestion'");
+                    mysqli_query($connexion,"INSERT INTO `choix`(`Reponse`, `Bonne_Réponse`, `idQuestion`) VALUES ('$reponse2',0,'$idLastQuestion')");
+                    mysqli_query($connexion,"INSERT INTO `choix`(`Reponse`, `Bonne_Réponse`, `idQuestion`) VALUES ('$reponse3',0,'$idLastQuestion')");
+                    mysqli_query($connexion,"INSERT INTO `choix`(`Reponse`, `Bonne_Réponse`, `idQuestion`) VALUES ('$reponse4',1,'$idLastQuestion')");
+                }
+            }
             ?>
             <script>
                 nombre= parseInt(document.getElementById('variable a passer').innerText)+1;
                 document.getElementById('variable a passer').innerText= "";
                 document.getElementById("Question").innerText = "Question "+nombre+"/10";
             </script>
-</body>
+    </body>
 </html>
