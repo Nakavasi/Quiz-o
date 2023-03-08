@@ -40,6 +40,7 @@
         </div>
     </form>
         <?php
+            //creation de la connexion entre le code et la base de donnée
             $connexion=mysqli_connect("localhost","root","", "quiz");
             $quizzs = mysqli_query($connexion,"SELECT * FROM quizz1");
             $nom= $_POST["nom"];
@@ -51,7 +52,6 @@
             else{
                 echo "Mission failed! We wil get them next time.";
             }
-            
             // $idlasquestion =null;
             // while ($quizz = mysqli_fetch_assoc($quizzs)) {
             //     $idLastQuizz = $quizz["Id"];
