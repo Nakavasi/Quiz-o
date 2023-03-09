@@ -57,12 +57,12 @@
             while ($quizz = mysqli_fetch_assoc($quizzs)) {
                 $idLastQuizz = $quizz["Id"];
             }
-            $questions = mysqli_query($connexion,"SELECT * FROM question WHERE idQuiz='$idLastQuizz'");
+            // $questions = mysqli_query($connexion,"SELECT * FROM question WHERE idQuiz='$idLastQuizz'");
             $nombrequestion=0;
-            while ($question = mysqli_fetch_assoc($questions)) {
-                $nombrequestion++;
-                $idLastQuestion=$question["id"];
-            }
+            // while ($question = mysqli_fetch_assoc($questions)) {
+            //     $nombrequestion++;
+            //     $idLastQuestion=$question["id"];
+            // }
             echo "<div id='variable a passer'>".$nombrequestion."</div>";
             
             if (array_key_exists("Validation",$_POST)){

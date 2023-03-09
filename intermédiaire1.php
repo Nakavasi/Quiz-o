@@ -33,7 +33,7 @@
             }
         }
         mysqli_query($connexion,"INSERT INTO `user`( `pseudo`, `email`, `password`, `role`) VALUES ('$pseudo','$mail','$mdp','$type')");
-        header("Location: accueil".$user["role"].".html");
+        header("Location: accueil".$type.".html");
     ?>
 </body>
 </html>
