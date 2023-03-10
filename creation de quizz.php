@@ -40,30 +40,15 @@
         </div>
     </form>
         <?php
-            $connexion=mysqli_connect("localhost","root","", "quiz");
+            mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+            $connexion=new mysqli("localhost","root","", "quiz");
             $quizzs = mysqli_query($connexion,"SELECT * FROM quizz1");
+            $date= date('20y-m-d');
             if (array_key_exists("nom",$_POST)){
                 $nom= $_POST["nom"];
                 $difficulte= intval($_POST["difficulte"]);
-                $date= date('20y-m-d');
-                if (mysqli_query($connexion,"INSERT INTO `quizz1` (`Titre`, `difficulté`, `date_de_creation`) VALUES ('$nom','$difficulte','$date')")){
-                    echo "Quiz cré!";
-                }
-                else{
-                    echo "Mission failed! We wil get them next time.";
-                }
+                mysqli_query($connexion,"INSERT INTO `quizz1` (`Titre`, `difficulte`, `date_de_creation`) VALUES ('$nom','$difficulte','$date')");
             }
-            $idLastQuestion =null;
-            while ($quizz = mysqli_fetch_assoc($quizzs)) {
-                $idLastQuizz = $quizz["Id"];
-            }
-            // $questions = mysqli_query($connexion,"SELECT * FROM question WHERE idQuiz='$idLastQuizz'");
-            $nombrequestion=0;
-            // while ($question = mysqli_fetch_assoc($questions)) {
-            //     $nombrequestion++;
-            //     $idLastQuestion=$question["id"];
-            // }
-            echo "<div id='variable a passer'>".$nombrequestion."</div>";
             
             if (array_key_exists("Validation",$_POST)){
                 if (array_key_exists("Reponse1check",$_POST)){
@@ -83,30 +68,47 @@
                 $reponse2=$_POST["Reponse2"];
                 $reponse3=$_POST["Reponse3"];
                 $reponse4=$_POST["Reponse4"];
-                $choix = mysqli_query($connexion,"SELECT * FROM choix");
+                $idLastQuestion =null;
+                while ($quizz = mysqli_fetch_assoc($quizzs)) {
+                    $idLastQuizz = $quizz["Id"];
+                }
+                mysqli_query($connexion,"INSERT INTO `question`(`intitule Question`, `date_creation`, `idQuizz`) VALUES ('$question','$date','$idLastQuizz')");
+                $nombrequestion=0;
+                if ($idLastQuizz!=null){
+                    $questions = mysqli_query($connexion,"SELECT * FROM question WHERE idQuizz='$idLastQuizz'");
+                    while ($question = mysqli_fetch_assoc($questions)) {
+                        $nombrequestion++;
+                        $idLastQuestion=intval($question["id"]);
+                    }
+                }
+                if ($nombrequestion>=10){
+                    header("location: accueil3.html");
+                    exit;
+                }
+                echo "<div id='variable a passer'>".$nombrequestion."</div>";
                 if (isset($check1)){
-                    mysqli_query($connexion,"INSERT INTO `choix`(`Reponse`, `Bonne_Réponse`, `idQuestion`) VALUES ('$reponse1',1,'$idLastQuestion'");
-                    mysqli_query($connexion,"INSERT INTO `choix`(`Reponse`, `Bonne_Réponse`, `idQuestion`) VALUES ('$reponse2',0,'$idLastQuestion')");
-                    mysqli_query($connexion,"INSERT INTO `choix`(`Reponse`, `Bonne_Réponse`, `idQuestion`) VALUES ('$reponse3',0,'$idLastQuestion')");
-                    mysqli_query($connexion,"INSERT INTO `choix`(`Reponse`, `Bonne_Réponse`, `idQuestion`) VALUES ('$reponse4',0,'$idLastQuestion')");
+                    mysqli_query($connexion,"INSERT INTO `choix`(`Reponse`, `Bonne_Reponse`, `idQuestion`) VALUES ('$reponse1',1,'$idLastQuestion')");
+                    mysqli_query($connexion,"INSERT INTO `choix`(`Reponse`, `Bonne_Reponse`, `idQuestion`) VALUES ('$reponse2',0,'$idLastQuestion')");
+                    mysqli_query($connexion,"INSERT INTO `choix`(`Reponse`, `Bonne_Reponse`, `idQuestion`) VALUES ('$reponse3',0,'$idLastQuestion')");
+                    mysqli_query($connexion,"INSERT INTO `choix`(`Reponse`, `Bonne_Reponse`, `idQuestion`) VALUES ('$reponse4',0,'$idLastQuestion')");
                 }
                 else if(isset($check2)){
-                    mysqli_query($connexion,"INSERT INTO `choix`(`Reponse`, `Bonne_Réponse`, `idQuestion`) VALUES ('$reponse1',0,'$idLastQuestion'");
-                    mysqli_query($connexion,"INSERT INTO `choix`(`Reponse`, `Bonne_Réponse`, `idQuestion`) VALUES ('$reponse2',1,'$idLastQuestion')");
-                    mysqli_query($connexion,"INSERT INTO `choix`(`Reponse`, `Bonne_Réponse`, `idQuestion`) VALUES ('$reponse3',0,'$idLastQuestion')");
-                    mysqli_query($connexion,"INSERT INTO `choix`(`Reponse`, `Bonne_Réponse`, `idQuestion`) VALUES ('$reponse4',0,'$idLastQuestion')");
+                    mysqli_query($connexion,"INSERT INTO `choix`(`Reponse`, `Bonne_Reponse`, `idQuestion`) VALUES ('$reponse1',0,'$idLastQuestion')");
+                    mysqli_query($connexion,"INSERT INTO `choix`(`Reponse`, `Bonne_Reponse`, `idQuestion`) VALUES ('$reponse2',1,'$idLastQuestion')");
+                    mysqli_query($connexion,"INSERT INTO `choix`(`Reponse`, `Bonne_Reponse`, `idQuestion`) VALUES ('$reponse3',0,'$idLastQuestion')");
+                    mysqli_query($connexion,"INSERT INTO `choix`(`Reponse`, `Bonne_Reponse`, `idQuestion`) VALUES ('$reponse4',0,'$idLastQuestion')");
                 }
                 else if(isset($check3)){
-                    mysqli_query($connexion,"INSERT INTO `choix`(`Reponse`, `Bonne_Réponse`, `idQuestion`) VALUES ('$reponse1',0,'$idLastQuestion'");
-                    mysqli_query($connexion,"INSERT INTO `choix`(`Reponse`, `Bonne_Réponse`, `idQuestion`) VALUES ('$reponse2',0,'$idLastQuestion')");
-                    mysqli_query($connexion,"INSERT INTO `choix`(`Reponse`, `Bonne_Réponse`, `idQuestion`) VALUES ('$reponse3',1,'$idLastQuestion')");
-                    mysqli_query($connexion,"INSERT INTO `choix`(`Reponse`, `Bonne_Réponse`, `idQuestion`) VALUES ('$reponse4',0,'$idLastQuestion')");
+                    mysqli_query($connexion,"INSERT INTO `choix`(`Reponse`, `Bonne_Reponse`, `idQuestion`) VALUES ('$reponse1',0,'$idLastQuestion')");
+                    mysqli_query($connexion,"INSERT INTO `choix`(`Reponse`, `Bonne_Reponse`, `idQuestion`) VALUES ('$reponse2',0,'$idLastQuestion')");
+                    mysqli_query($connexion,"INSERT INTO `choix`(`Reponse`, `Bonne_Reponse`, `idQuestion`) VALUES ('$reponse3',1,'$idLastQuestion')");
+                    mysqli_query($connexion,"INSERT INTO `choix`(`Reponse`, `Bonne_Reponse`, `idQuestion`) VALUES ('$reponse4',0,'$idLastQuestion')");
                 }
                 else if(isset($check4)){
-                    mysqli_query($connexion,"INSERT INTO `choix`(`Reponse`, `Bonne_Réponse`, `idQuestion`) VALUES ('$reponse1',0,'$idLastQuestion'");
-                    mysqli_query($connexion,"INSERT INTO `choix`(`Reponse`, `Bonne_Réponse`, `idQuestion`) VALUES ('$reponse2',0,'$idLastQuestion')");
-                    mysqli_query($connexion,"INSERT INTO `choix`(`Reponse`, `Bonne_Réponse`, `idQuestion`) VALUES ('$reponse3',0,'$idLastQuestion')");
-                    mysqli_query($connexion,"INSERT INTO `choix`(`Reponse`, `Bonne_Réponse`, `idQuestion`) VALUES ('$reponse4',1,'$idLastQuestion')");
+                    mysqli_query($connexion,"INSERT INTO `choix`(`Reponse`, `Bonne_Reponse`, `idQuestion`) VALUES ('$reponse1',0,'$idLastQuestion')");
+                    mysqli_query($connexion,"INSERT INTO `choix`(`Reponse`, `Bonne_Reponse`, `idQuestion`) VALUES ('$reponse2',0,'$idLastQuestion')");
+                    mysqli_query($connexion,"INSERT INTO `choix`(`Reponse`, `Bonne_Reponse`, `idQuestion`) VALUES ('$reponse3',0,'$idLastQuestion')");
+                    mysqli_query($connexion,"INSERT INTO `choix`(`Reponse`, `Bonne_Reponse`, `idQuestion`) VALUES ('$reponse4',1,'$idLastQuestion')");
                 }
             }
             ?>
