@@ -21,13 +21,21 @@
         $pseudo = $_POST["pseudo"];
         Supprimer($result, $connexion,$pseudo);
     }
+    echo "<h1>Choisir un pseudo à supprimer :</h1><br>";
+    echo "<br>";
+    echo "<div class='pseudo'>";
     echo '<select name="pseudo" id="Pseudo-select" required>';
     echo '<option value="">--Choisie un pseudo--</option>';
     while ($user = mysqli_fetch_assoc($result)) {
         echo '<option value='.$user['pseudo'].'>'.$user['pseudo'].'</option>';
     }
     echo '</select>';
+    echo "</div>";
     ?>
-    <input type="submit" name="envoie" value="Envoyer">
+    <br>
+    <br>
+    <div class= "bouton">
+    <input type="submit" name="envoie" value="Supprimer">
+    </div>
     </form>
 </body>
