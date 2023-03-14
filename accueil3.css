@@ -1,5 +1,5 @@
 body{
-    background: linear-gradient(rgba(170, 34, 170, 0.877), pink);;
+    background: linear-gradient(rgba(170, 34, 170, 0.877), pink);
     color: #000000;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 12px;
@@ -10,6 +10,11 @@ body{
     font-family: script;
     margin-top: 160;
 }
+.button{
+    text-align: left;
+    margin-left: 40px;
+    transition-duration: 0.4s;
+}  
 .button input{
     border-radius: 5px;
     width: 150px;
@@ -18,15 +23,17 @@ body{
     font-size: 20px;
     background: linear-gradient(to top,rgba(218, 73, 218, 0.877), pink);
 }
-.button{
-    text-align: left;
-    margin-left: 40px;
-    transition-duration: 0.4s;
-}  
 .button input:hover {
     background: magenta;
     color: lightpink;
 }
+.button1{
+    flex-direction: column;
+    text-align: left;
+    margin-left: 40px;
+    margin-top: -230px;
+    transition-duration: 0.4s;
+}  
 .button1 input{
     border-radius: 5px;
     width: 100px;
@@ -35,16 +42,16 @@ body{
     font-size: 15px;
     background: linear-gradient(to top,rgba(218, 73, 218, 0.877), pink);
 }
-.button1{
-    text-align: left;
-    margin-left: 40px;
-    margin-top: -250px;
-    transition-duration: 0.4s;
-}  
 .button1 input:hover {
     background: magenta;
     color: lightpink;
 }
+.button2{
+    text-align: left;
+    margin-left: 40px;
+    margin-top: px;
+    transition-duration: 0.4s;
+}  
 .button2 input{
     border-radius: 5px;
     width: 100px;
@@ -53,16 +60,16 @@ body{
     font-size: 15px;
     background: linear-gradient(to top,rgba(218, 73, 218, 0.877), pink);
 }
-.button2{
-    text-align: left;
-    margin-left: 40px;
-    margin-top: -px;
-    transition-duration: 0.4s;
-}  
 .button2 input:hover {
     background: magenta;
     color: lightpink;
 }
+.button3{
+    text-align: left;
+    margin-left: 40px;
+    margin-top: px;
+    transition-duration: 0.4s;
+}  
 .button3 input{
     border-radius: 5px;
     width: 100px;
@@ -71,50 +78,26 @@ body{
     font-size: 15px;
     background: linear-gradient(to top,rgba(218, 73, 218, 0.877), pink);
 }
-.button3{
-    text-align: left;
-    margin-left: 40px;
-    margin-top: -px;
-    transition-duration: 0.4s;
-}  
 .button3 input:hover {
     background: magenta;
     color: lightpink;
 }
-.button4 input{
-    border-radius: 5px;
-    width: 100px;
-    height: 20px;
-    font-family: script;
-    font-size: 15px;
-    background: linear-gradient(to top,rgba(218, 73, 218, 0.877), pink);
-}
-.button4{
+.quizz{
+
     text-align: left;
     margin-left: 40px;
-    margin-top: -200px;
+    margin-top: px;
     transition-duration: 0.4s;
-}  
-.button4 input:hover {
-    background: magenta;
-    color: lightpink;
 }
-.bouton5 input{
+.quizz input{
     border-radius: 5px;
     width: 100px;
-    height: 20px;
+    height: 22px;
     font-family: script;
     font-size: 15px;
     background: linear-gradient(to top,rgba(218, 73, 218, 0.877), pink);
-
 }
-.bouton5{
-    text-align: right;
-    margin-left: 40px;
-    margin-top: -200px;
-    transition-duration: 0.4s;
-}
-.bouton5 input{
+.quizz input:hover{
     background: magenta;
     color: lightpink;
 }

@@ -9,12 +9,14 @@
 <body>
     <h1>Bonjour voici les différents quizz :</h1>
     <?php
-    $connexion=mysqli_connect("localhost","root","", "quiz");
+    $connexion=mysqli_connect("localhost","root","", "quizz");
     $Quizzs=mysqli_query($connexion,"SELECT * FROM quizz1");
     while ($quizz = mysqli_fetch_assoc($Quizzs)) {
         $titre =$quizz['Titre'];
         echo "<form action='reponse.php' method='post'>";
+        echo "<div class='quizz'>";
         echo  "<input type=submit value='$titre' name='titre' id='titre'>";
+        echo "</div>";
         echo "</form>";
     }
     ?>
