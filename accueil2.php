@@ -8,11 +8,16 @@
 </head>
 <body>
     <h1>Bonjour voici les différents quizz :</h1>
-    <form>
-    <div class="button">
-        <input type="submit" value="Quizz">
-    </div>
-    </form>
+    <?php
+    $connexion=mysqli_connect("localhost","root","", "quiz");
+    $Quizzs=mysqli_query($connexion,"SELECT * FROM quizz1");
+    while ($quizz = mysqli_fetch_assoc($Quizzs)) {
+        $titre =$quizz['Titre'];
+        echo "<form action='reponse.php' method='post'>";
+        echo  "<input type=submit value='$titre' name='titre' id='titre'>";
+        echo "</form>";
+    }
+?>
     <form>
     <div class="button1">
         <input type="submit" value="Nouveau">
