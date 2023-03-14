@@ -8,7 +8,7 @@
 </head>
 <body>
     <?php
-        $connexion=mysqli_connect("localhost","root","", "quiz");
+        $connexion=mysqli_connect("localhost","root","", "quizz");
         $result = mysqli_query($connexion,"SELECT * FROM user");
         $pseudo= $_POST["prenom"];
         $mdp= $_POST["password"];

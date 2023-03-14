@@ -9,6 +9,7 @@
 <body>
 <?php
 $titre =$_POST["titre"];
+$Iduser=$_POST["Id"];
 echo "<h1>$titre</h1>";
 ?>
 <h2>Question</h2>

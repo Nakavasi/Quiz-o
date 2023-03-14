@@ -11,7 +11,7 @@
 <body>
     <form method="post">
     <?php
-    $connexion=mysqli_connect("localhost","root","", "quiz");
+    $connexion=mysqli_connect("localhost","root","", "quizz");
     $result = mysqli_query($connexion,"SELECT * FROM user");
     function Supprimer($result,$connexion,$pseudo){
         $result = mysqli_query($connexion, "DELETE FROM user WHERE pseudo='$pseudo'");
