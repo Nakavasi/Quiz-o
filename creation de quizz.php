@@ -69,9 +69,8 @@
                 $reponse3=$_POST["Reponse3"];
                 $reponse4=$_POST["Reponse4"];
                 $idLastQuestion =null;
-                while ($quizz = mysqli_fetch_assoc($quizzs)) {
-                    $idLastQuizz = $quizz["Id"];
-                }
+                $quizz = mysqli_fetch_assoc($quizzs);
+                $idLastQuizz = $quizz["Id"];
                 mysqli_query($connexion,"INSERT INTO `question`(`intitule Question`, `date_creation`, `idQuizz`) VALUES ('$question','$date','$idLastQuizz')");
                 $nombrequestion=0;
                 if ($idLastQuizz!=null){
@@ -81,7 +80,7 @@
                         $idLastQuestion=intval($question["id"]);
                     }
                 }
-                if ($nombrequestion>=10){
+                if ($nombrequestion>=4){
                     header("location: accueil3.html");
                     exit;
                 }
@@ -115,7 +114,7 @@
             <script>
                 nombre= parseInt(document.getElementById('variable a passer').innerText)+1;
                 document.getElementById('variable a passer').innerText= "";
-                document.getElementById("Question").innerText = "Question "+nombre+"/10";
+                document.getElementById("Question").innerText = "Question "+nombre+"/4";
             </script>
     </body>
 </html>
