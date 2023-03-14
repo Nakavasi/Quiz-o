@@ -9,8 +9,9 @@
 <body>
 <?php
 $titre =$_POST["titre"];
+$Iduser=$_POST["Id"];
+echo "<h1>$titre</h1>";
 ?>
-<h1>Nom de Quizz</h1>
 <h2>Question</h2>
 <form action="reponse.php" method="post">
     <div class="choix1choix2">
