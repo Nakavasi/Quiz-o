@@ -1,0 +1,43 @@
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="inscription.css">
+    <title>Inscription</title>
+</head>
+<body>
+    <h1>Veuillez vous inscrire</h1>
+    <p>inscription</p>
+    <form action="intermédiaire1.php" method="post">
+        <div class="mail">
+                <label for="mail">Mail</label>
+                <input type="email" name="mail" id="mail" required=""><br>
+        </div>
+        <div class="pseudo">
+                <label for="prenom">Pseudo</label>
+                <input type="text" name="prenom" id="prenom" required><br>
+        </div>
+        <div class="Mdp">
+                <label for="password">Mot de passe</label>
+                <input type="password" name="password" id="password" required><br>
+        </div><br>
+        <div class="select">
+            <select name="Type" id="Type-select" required>
+                <option value="" style="color:linear-gradient(to top,rgba(218, 73, 218, 0.877), pink);">--Choisie un rôle--</option>
+                <option value=3 style="color:linear-gradient(to top,rgba(218, 73, 218, 0.877), pink);">User</option>
+                <option value=2 >Quizzer</option>
+            </select>
+        </div>
+        <br><br>
+        <div class="button">
+            <input type="submit" value="S'inscrire">
+        </div>
+    </form>
+    <form action="connexion.html" method="post">
+    <div class="button1">
+            <input type="submit" value="Se connecter">
+    </div>
+    </form>
+</body>
+</html>
